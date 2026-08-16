@@ -5,6 +5,7 @@ import java.lang.Thread;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class Stage0{
 
     static final int NUM_PRODUCERS = 10;
@@ -14,7 +15,7 @@ public class Stage0{
     public static void main(String[] args) throws InterruptedException {
 
         JobCounter jobCounter = new JobCounter();
-        final JobQueue jobQueue = new JobQueue();
+        JobQueue jobQueue = new JobQueue();
 
         List<Thread> producers = new ArrayList<>();
         for(int i = 0 ; i < NUM_PRODUCERS; i++){
@@ -36,9 +37,11 @@ public class Stage0{
                    if(job != null){
                        jobCounter.increment();
                    }else{
-                       Thread.yield();
+                       break;
+                       //Thread.yield();
                    }
-                   if(jobCounter.getCount() >= NUM_PRODUCERS*JOBS_PER_PRODUCER) break;
+                   // Commenting this as count may never reach 10000 and we are forever stuck in the loop
+                   //if(jobCounter.getCount() >= NUM_PRODUCERS*JOBS_PER_PRODUCER) break;
                }
             });
             consumers.add(t);

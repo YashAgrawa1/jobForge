@@ -22,4 +22,8 @@ public class JobQueue{
         return jobs.isEmpty();
     }
 
+    public int size(){
+        return jobs.size();
+    }
+
 }
