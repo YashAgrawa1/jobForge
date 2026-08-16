@@ -1,0 +1,7 @@
+1)What a thread is at the OS/JVM level: own stack + program counter, shared heap
+
+2)The difference between concurrency (interleaving) and parallelism (simultaneous execution on multiple cores)
+
+3)Why "it worked in my test" proves nothing for concurrent code
+
+4)how to actually create and run threads
